@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.scss";
 import Badge from "./components/Badge";
+import { Scrollbars } from 'react-custom-scrollbars';
 
 function App() {
   const [Brightness, setBrightness] = useState("1");
@@ -58,6 +59,10 @@ function App() {
     ImageEditedChange();
   };
 
+  // const onImageChange = () => { 
+  //   console.log('asdasd');
+  // }
+
   return (
     <div className="app">
       <Badge />
@@ -68,14 +73,17 @@ function App() {
             <div className="center-image">
               <img src={baseImage} alt="editing-canvas" />
             </div>
-
+            <div class="input-wrapper">
             <input
               placeholder="Enter an image url"
               onChange={AddImageChange}
               value={AddImage}
-            ></input>
+            />
+             {/* <input type="file" name="myImage" onChange={onImageChange} /> */}
+            </div>
           </div>
           <div className="column-right">
+          <Scrollbars>
             <div className="option-container">
               <div className="filter-section">
                 <h3 className="sub-heading">Filters</h3>
@@ -187,10 +195,11 @@ function App() {
                   rel="noreferrer"
                   download
                 >
-                  Download
+                  Download 
                 </a>
               </div>
             </div>
+            </Scrollbars>
           </div>
         </div>
       </div>

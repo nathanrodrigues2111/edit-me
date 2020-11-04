@@ -15,9 +15,56 @@ $mainColor : #000;
 $lightGrey : #1F1F1F;
 $secColor : #fff;
 
+//Mixins
+
+// Media query mixin
+@mixin bp($query) {
+  @if $query == desktop-lg {
+    @media (min-width: 1600px) { @content; }
+  }
+  @else if $query == desktop-md {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else if $query == ipad-md {
+    @media (max-width: 1199px) { @content; }
+  }
+
+  @else if $query == desktop-custom {
+     @media (min-width: 1024px) and (max-width: 1200px) { @content; }
+  }
+  @else if $query == tablet-md {
+    @media (min-width: 992px) { @content; }
+  }
+  @else if $query == tablet-sm {
+    @media (max-width: 991px) { @content; }
+  }
+  @else if $query == tablet-strict {
+    @media (min-width: 768px) and (max-width: 991px)  { @content; }
+  }
+  @else if $query == tablet-only {
+    @media (min-width: 768px) and (max-width: 768px)  { @content; }
+  }
+  @else if $query == tablet {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $query == mobile {
+    @media (max-width: 767px)  { @content; }
+  }
+  @else if $query == ipad-pro { // this is only for header. please do not use anywhere else
+     @media (min-width: 1024px) and (max-width: 1024px)  { @content; }
+  }
+  @else if $query == xs {
+    @media (max-width: 320px)  { @content; }
+  }
+  @else if $query == tablet-between {
+    @media (min-width: 992px) and (max-width: 1199px)  { @content; }
+  } 
+}
+
+
 
 //Common helpers
-
 
 [type=range] {
 	-webkit-appearance: none;
@@ -135,7 +182,6 @@ $secColor : #fff;
 	}
 }
 
-
 .instagram-gradient{
   background: rgb(220,143,64);
   background: linear-gradient(135deg, rgba(220,143,64,1) 0%, rgba(196,41,105,1) 50%, rgba(151,31,159,1) 100%);
@@ -183,6 +229,10 @@ $secColor : #fff;
 img{
   width: 100%;
   height: auto;
+}
+
+html{
+  overflow: hidden;
 }
 
 .app {
@@ -236,16 +286,33 @@ img{
         background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
         background-color: $mainColor;
 
-        input{
-          width: 500px;
+        .input-wrapper{
+          width: 100%; 
+          max-width: 500px;
           position: fixed;
-          bottom: 1rem;
-          border: 3px solid $mainColor;
-          padding: 12px 20px;
-          font-size: 1.2rem;
-          color: $mainColor;
+          bottom: 0;
+          padding: 10px 20px;
+          z-index: 1;
+          input{
+            width: 100%;
+            border: 3px solid $mainColor;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            color: $mainColor;
+          }
+
+          @include bp(tablet-sm){ 
+            background-color: $mainColor;
+            max-width: 100%;
+          }
         }
 
+      
+        
+        @include bp(tablet-sm){
+          width: 100%;
+          height: 50vh;
+        }
      
       }
 
@@ -255,12 +322,18 @@ img{
         
         .option-container{
           width: 100%;
-          max-width: 500px;
+          max-width: 600px;
           margin: 0 auto; 
-          padding-top: 100px;
+          padding: 100px 50px 30px 50px;
+          
+
+          @include bp(tablet-sm){
+            padding: 20px; 
+            padding-bottom: 150px;
+          }
         }
 
-        ul.options{
+        ul.options{ 
           display: flex;
           list-style: none;
           box-sizing: border-box;
@@ -323,6 +396,12 @@ img{
             input[type="range"]{
               width: 100%;
             }
+        }
+
+        @include bp(tablet-sm){
+          width: 100%;
+          height: 50vh;
+          overflow-y: auto;
         }
 
       }
