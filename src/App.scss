@@ -1,0 +1,330 @@
+//Fonts
+@font-face {
+  font-family: 'Sansita';
+  src: url('./fonts/Sansita-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+//Fonts
+$primary-font : 'Sansita';
+
+//Colors
+$mainColor : #000;
+$lightGrey : #1F1F1F;
+$secColor : #fff;
+
+
+//Common helpers
+
+
+[type=range] {
+	-webkit-appearance: none;
+	background: transparent;
+	margin: 12px 0;
+  width: 100%;
+  cursor: pointer;
+	&::-moz-focus-outer {
+		border: 0;
+	}
+	&:focus {
+		outline: 0;
+		&::-webkit-slider-runnable-track {
+			background: $secColor;
+		}
+		&::-ms-fill-lower {
+			background: $secColor;
+		}
+		&::-ms-fill-upper {
+			background: #fbfbfc;
+		}
+	}
+	&::-webkit-slider-runnable-track {
+		cursor: default;
+		height: 8px;
+		transition: all 0.2s ease;
+		width: 100%;
+		background: $secColor;
+		border: 2px solid #cfd8dc;
+		border-radius: 5px;
+	}
+	&::-webkit-slider-thumb {
+		background: $mainColor;
+		border: 2px solid $secColor;
+		border-radius: 12px;
+		box-sizing: border-box;
+		cursor: default;
+		height: 24px;
+		width: 24px;
+		-webkit-appearance: none;
+		margin-top: -10px;
+	}
+	&::-moz-range-track {
+		cursor: default;
+		height: 8px;
+		transition: all 0.2s ease;
+		width: 100%;
+		background: $secColor;
+		border: 2px solid #cfd8dc;
+		border-radius: 5px;
+		height: 4px;
+	}
+	&::-moz-range-thumb {
+
+		background: $mainColor;
+		border: 2px solid $secColor;
+		border-radius: 12px;
+		box-sizing: border-box;
+		cursor: default;
+		height: 24px;
+		width: 24px;
+	}
+	&::-ms-track {
+		cursor: default;
+		height: 8px;
+		transition: all 0.2s ease;
+		width: 100%;
+		background: transparent;
+		border-color: transparent;
+		border-width: 12px 0;
+		color: transparent;
+	}
+	&::-ms-fill-lower {
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1px rgba(13, 13, 13, 0.2);
+		background: #dde3e6;
+		border: 2px solid #cfd8dc;
+		border-radius: 10px;
+	}
+	&::-ms-fill-upper {
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1px rgba(13, 13, 13, 0.2);
+		background: $secColor;
+		border: 2px solid #cfd8dc;
+		border-radius: 10px;
+	}
+	&::-ms-thumb {
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2), 0 0 4px rgba(13, 13, 13, 0.2);
+		background: $mainColor;
+		border: 2px solid $secColor;
+		border-radius: 12px;
+		box-sizing: border-box;
+		cursor: default;
+		height: 24px;
+		width: 24px;
+		margin-top: 2px;
+	}
+	&:disabled {
+		&::-webkit-slider-thumb {
+			cursor: not-allowed;
+		}
+		&::-moz-range-thumb {
+			cursor: not-allowed;
+		}
+		&::-ms-thumb {
+			cursor: not-allowed;
+		}
+		&::-webkit-slider-runnable-track {
+			cursor: not-allowed;
+		}
+		&::-ms-fill-lower {
+			cursor: not-allowed;
+		}
+		&::-ms-fill-upper {
+			cursor: not-allowed;
+		}
+	}
+}
+
+
+.instagram-gradient{
+  background: rgb(220,143,64);
+  background: linear-gradient(135deg, rgba(220,143,64,1) 0%, rgba(196,41,105,1) 50%, rgba(151,31,159,1) 100%);
+}
+
+.sub-heading{
+  color: $secColor;
+  font-weight: 500;
+  border-bottom: 2px solid $secColor;
+  padding-bottom: .5rem; 
+  margin-bottom: .6rem;
+
+  &.small{
+    padding-top: 1rem;
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.container{
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.before-after-common{
+  content:'';
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+}
+
+*{
+  font-family: $primary-font;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img{
+  width: 100%;
+  height: auto;
+}
+
+.app {
+    width: 100%;
+    height: 100%; 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+
+    .github{ 
+      position: fixed;
+      top: 0;
+      right: 0;
+
+      img{
+        width: 50px;
+        height: 50px;
+        position: relative;
+        z-index: 1;
+        padding: 10px;
+      }
+
+      &:after{
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 100px 100px 0;
+        border-color: transparent $secColor transparent transparent;
+        right: 0;
+        top: 0;
+        position: absolute;
+      }
+    }
+
+    
+    .row{
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+      min-height: 100vh;
+
+      .column-left{
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
+        background-color: $mainColor;
+
+        input{
+          width: 500px;
+          position: fixed;
+          bottom: 1rem;
+          border: 3px solid $mainColor;
+          padding: 12px 20px;
+          font-size: 1.2rem;
+          color: $mainColor;
+        }
+
+     
+      }
+
+      .column-right{
+        width: 40%;
+        background-color: $mainColor;
+        
+        .option-container{
+          width: 100%;
+          max-width: 500px;
+          margin: 0 auto; 
+          padding-top: 100px;
+        }
+
+        ul.options{
+          display: flex;
+          list-style: none;
+          box-sizing: border-box;
+          margin-left: -10px;
+          margin-right: -10px;
+
+          li{
+            width: 33.33%;
+            padding: 0 10px;
+
+            button{
+              display: block;
+              text-align: center;
+              border: 2px solid $secColor;
+              background-color: $secColor;
+              padding: 1rem;
+              cursor: pointer;
+              width: 100%;
+              text-decoration: none;
+              color: $mainColor;
+              transition: .3s;
+
+              &:hover{
+                border: 2px solid $secColor;
+                background-color: $mainColor;
+                color: $secColor;
+              }
+            }
+
+            &.active{
+              button{
+                border: 2px solid $secColor;
+                background-color: $mainColor;
+                color: $secColor;
+              }
+            }
+
+          }
+        }
+
+        .download-button{
+          padding-top: 2rem;
+
+          a{
+            display: block;
+            text-align: center;
+            border: 2px solid $secColor;
+            background-color: $secColor;
+            padding: 1rem;
+            cursor: pointer;
+            width: 100%;
+            text-decoration: none;
+            color: $mainColor;
+          }
+        }
+
+        .filter-section{
+          padding-bottom: 1rem;
+
+            input[type="range"]{
+              width: 100%;
+            }
+        }
+
+      }
+    } 
+}
