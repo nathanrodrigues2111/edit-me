@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.scss";
 import Badge from "./components/Badge";
-import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from "react-custom-scrollbars";
 
 function App() {
   const [Brightness, setBrightness] = useState("1");
@@ -23,8 +23,6 @@ function App() {
     AddImage ? AddImage : defaultImage
   }&q=${Quality}&blur=${Blur}&con=${Contrast}&gam=${Gamma}&mod=${Brightness}&sat=${Saturation}&hue=${HueRotation}&sharp=${Sharpen}&output=${ImageFormat}`;
 
-
-
   const AddImageChange = (event) => {
     setAddImage(event.target.value);
   };
@@ -35,7 +33,6 @@ function App() {
 
   const ImageFormatChange = (event) => {
     setImageFormat(event.target.attributes[0].nodeValue);
-
   };
 
   const OptionChange = (event) => {
@@ -59,10 +56,6 @@ function App() {
     ImageEditedChange();
   };
 
-  // const onImageChange = () => { 
-  //   console.log('asdasd');
-  // }
-
   return (
     <div className="app">
       <Badge />
@@ -74,131 +67,130 @@ function App() {
               <img src={baseImage} alt="editing-canvas" />
             </div>
             <div class="input-wrapper">
-            <input
-              placeholder="Enter an image url"
-              onChange={AddImageChange}
-              value={AddImage}
-            />
-             {/* <input type="file" name="myImage" onChange={onImageChange} /> */}
+              <input
+                placeholder="Enter an image url"
+                onChange={AddImageChange}
+                value={AddImage}
+              />
             </div>
           </div>
           <div className="column-right">
-          <Scrollbars>
-            <div className="option-container">
-              <div className="filter-section">
-                <h3 className="sub-heading">Filters</h3>
-                <h4 className="sub-heading small">Brightness</h4>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  tool="brightness"
-                  value={Brightness}
-                  onChange={OptionChange}
-                  step="1"
-                />
-                <h4 className="sub-heading small">Contrast</h4>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  tool="contrast"
-                  value={Contrast}
-                  onChange={OptionChange}
-                  step="1"
-                />
+            <Scrollbars>
+              <div className="option-container">
+                <div className="filter-section">
+                  <h3 className="sub-heading">Filters</h3>
+                  <h4 className="sub-heading small">Brightness</h4>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    tool="brightness"
+                    value={Brightness}
+                    onChange={OptionChange}
+                    step="1"
+                  />
+                  <h4 className="sub-heading small">Contrast</h4>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    tool="contrast"
+                    value={Contrast}
+                    onChange={OptionChange}
+                    step="1"
+                  />
 
-                <h4 className="sub-heading small">Gamma</h4>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  tool="gamma"
-                  value={Gamma}
-                  onChange={OptionChange}
-                  step="1"
-                />
-                <h4 className="sub-heading small">Saturation</h4>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  tool="saturation"
-                  value={Saturation}
-                  onChange={OptionChange}
-                  step="1"
-                />
-                <h4 className="sub-heading small">Hue rotation</h4>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  tool="huerotation"
-                  value={HueRotation}
-                  onChange={OptionChange}
-                  step="1"
-                />
-                <h4 className="sub-heading small">Sharpen</h4>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  tool="sharpen"
-                  value={Sharpen}
-                  onChange={OptionChange}
-                  step="1"
-                />
-                <h4 className="sub-heading small">Blur</h4>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  tool="blur"
-                  value={Blur}
-                  onChange={OptionChange}
-                  step="1"
-                />
-                <h4 className="sub-heading small">Quality</h4>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  tool="quality"
-                  value={Quality}
-                  onChange={OptionChange}
-                  step="1"
-                />
-              </div>
-              <h3 className="sub-heading">Choose format</h3>
-              <ul className="options">
-                <li className={ImageFormat === 'jpg' ? 'active': null}>
-                  <button format="jpg" onClick={ImageFormatChange} download>
-                    jpg
-                  </button>
-                </li>
-                <li className={ImageFormat === 'png' ? 'active': null}>
-                  <button format="png" onClick={ImageFormatChange} download>
-                    png
-                  </button>
-                </li>
-                <li className={ImageFormat ==='webp'  ? 'active': null}>
-                  <button format="webp" onClick={ImageFormatChange} download>
-                    webp
-                  </button>
-                </li>
-              </ul>
+                  <h4 className="sub-heading small">Gamma</h4>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    tool="gamma"
+                    value={Gamma}
+                    onChange={OptionChange}
+                    step="1"
+                  />
+                  <h4 className="sub-heading small">Saturation</h4>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    tool="saturation"
+                    value={Saturation}
+                    onChange={OptionChange}
+                    step="1"
+                  />
+                  <h4 className="sub-heading small">Hue rotation</h4>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    tool="huerotation"
+                    value={HueRotation}
+                    onChange={OptionChange}
+                    step="1"
+                  />
+                  <h4 className="sub-heading small">Sharpen</h4>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    tool="sharpen"
+                    value={Sharpen}
+                    onChange={OptionChange}
+                    step="1"
+                  />
+                  <h4 className="sub-heading small">Blur</h4>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    tool="blur"
+                    value={Blur}
+                    onChange={OptionChange}
+                    step="1"
+                  />
+                  <h4 className="sub-heading small">Quality</h4>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    tool="quality"
+                    value={Quality}
+                    onChange={OptionChange}
+                    step="1"
+                  />
+                </div>
+                <h3 className="sub-heading">Choose format</h3>
+                <ul className="options">
+                  <li className={ImageFormat === "jpg" ? "active" : null}>
+                    <button format="jpg" onClick={ImageFormatChange} download>
+                      jpg
+                    </button>
+                  </li>
+                  <li className={ImageFormat === "png" ? "active" : null}>
+                    <button format="png" onClick={ImageFormatChange} download>
+                      png
+                    </button>
+                  </li>
+                  <li className={ImageFormat === "webp" ? "active" : null}>
+                    <button format="webp" onClick={ImageFormatChange} download>
+                      webp
+                    </button>
+                  </li>
+                </ul>
 
-              <div className="download-button">
-                <a
-                  href={ImageEdited}
-                  target="_blank"
-                  rel="noreferrer"
-                  download
-                >
-                  Download 
-                </a>
+                <div className="download-button">
+                  <a
+                    href={ImageEdited}
+                    target="_blank"
+                    rel="noreferrer"
+                    download
+                  >
+                    Download
+                  </a>
+                </div>
               </div>
-            </div>
             </Scrollbars>
           </div>
         </div>
